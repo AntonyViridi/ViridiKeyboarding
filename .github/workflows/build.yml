@@ -9,20 +9,19 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-          path: 'zmk'
 
       - name: Build Firmware
-        uses: docker://zmkfirmware/zmk-build-arm:stable
-        with:
-          args: >
+        run: |
+          docker run --rm -v $PWD:/workspace \
+            -w /workspace zmkfirmware/zmk-build-arm:stable \
             bash -c "
             git config --global --add safe.directory '*' &&
-            west init -l config &&
+            west init --mr v0.3.0 -l config &&
             west update &&
             west build -b nice_nano_v2 --pristine -- \
               -DSHIELD=ViridiKeyboard \
-              -DZMK_CONFIG=/github/workspace/config \
-              -DSHIELD_DIR=/github/workspace/boards/shields
+              -DZMK_CONFIG=/workspace/config \
+              -DSHIELD_DIR=/workspace/boards/shields
             "
 
       - name: Upload Artifact
