@@ -16,12 +16,7 @@
 
 
  // Сканеруем матрицу 6x16
-    &kscan0: kscan_gpio_matrix {
-        compatible = "zmk,kscan-gpio-matrix";
-        debounce-period = <5>;
-        polling-interval-msec = <10>;
-        wakeup-source;
-
+&zephyr_gpio_keyboard {
         // 6 строк подключены к GPIO пинам nice!nano
         row-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>,   // P1.04 (Row 0)
                     <&gpio0 22 GPIO_ACTIVE_LOW>,  // P0.22 (Row 1)
@@ -29,7 +24,14 @@
                     <&gpio1 0 GPIO_ACTIVE_LOW>,   // P1.00 (Row 3)
                     <&gpio0 24 GPIO_ACTIVE_LOW>,  // P0.24 (Row 4)
                     <&gpio0 11 GPIO_ACTIVE_LOW>;  // P0.11 (Row 5)
-
+        debounce-delay-ms = <5>;
+        poll-delay-ms = <10>;
+        poll-interval-ms = <33>;
+};
+kscan0: kscan_0 {
+    compatible = "zmk,kscan-gpio-matrix";
+    diode-direction = "col2row";
+    col-gpios
         // 16 столбцов через сдвиговые регистры
         col-gpios = <&shifter 0 GPIO_ACTIVE_HIGH>,
                     <&shifter 1 GPIO_ACTIVE_HIGH>,
@@ -71,5 +73,6 @@
         >;
     };
 };
+
 
 
