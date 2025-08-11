@@ -16,7 +16,7 @@ jobs:
             -w /workspace zmkfirmware/zmk-build-arm:stable \
             bash -c "
             git config --global --add safe.directory '*' &&
-            west init --mr v0.3.0 -l config &&
+            west init --mr v0.3.0 config &&
             west update &&
             west build -b nice_nano_v2 --pristine -- \
               -DSHIELD=ViridiKeyboard \
