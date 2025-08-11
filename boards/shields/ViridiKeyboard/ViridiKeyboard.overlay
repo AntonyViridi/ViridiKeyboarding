@@ -1,4 +1,4 @@
-&spi1 { // Необходимо ввести spi хост
+&spi2 { // Необходимо ввести spi хост
     status = "okay";
     cs-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>; // Пин МК от регистра STCP
     
@@ -16,7 +16,7 @@
 
 
  // Сканеруем матрицу 6x16
-    kscan0: kscan_gpio_matrix {
+    &kscan0: kscan_gpio_matrix {
         compatible = "zmk,kscan-gpio-matrix";
         debounce-period = <5>;
         polling-interval-msec = <10>;
@@ -71,4 +71,5 @@
         >;
     };
 };
+
 
