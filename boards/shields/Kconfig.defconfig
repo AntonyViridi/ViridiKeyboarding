@@ -1,0 +1,9 @@
+if SHIELD_ViridiKeyboard
+
+config ZMK_KEYBOARD_NAME
+    default "ViridiKeyboard"
+
+config SPI
+	default y
+
+endif # SHIELD_ViridiKeyboard

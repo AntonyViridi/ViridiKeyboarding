@@ -1,0 +1,2 @@
+config SHIELD_ViridiKeyboard
+    def_bool $(shields_list_contains,ViridiKeyboard)
