@@ -9,6 +9,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+          path: 'zmk'
+
+      - name: Prepare ZMK Environment
+        run: |
+          mkdir -p .west
+          echo "[manifest]" > .west/config
+          echo "path = zmk" >> .west/config
+          echo "file = west.yml" >> .west/config
 
       - name: Build Firmware
         run: |
@@ -16,10 +24,9 @@ jobs:
             -w /workspace zmkfirmware/zmk-build-arm:stable \
             bash -c "
             git config --global --add safe.directory '*' &&
-            rm -rf .west &&
-            west init -m https://github.com/zmkfirmware/zmk --mr main --manifest-rev main &&
             west update &&
-            west build -p -b nice_nano_v2 --pristine -- \
+            cd zmk &&
+            west build -b nice_nano_v2 --pristine -- \
               -DSHIELD=ViridiKeyboard \
               -DZMK_CONFIG=/workspace/config \
               -DSHIELD_DIR=/workspace/boards/shields
@@ -29,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: firmware
-          path: build/zephyr/*.uf2
+          path: zmk/build/zephyr/*.uf2
