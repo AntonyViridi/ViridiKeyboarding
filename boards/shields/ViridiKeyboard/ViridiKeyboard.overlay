@@ -14,9 +14,10 @@
     };
 };
 
-
+/ {
  // Сканеруем матрицу 6x16
-&zephyr_gpio_keyboard {
+zephyr_gpio_keyboard: gpio_keys {
+    compatible = "zmk, keys";
         // 6 строк подключены к GPIO пинам nice!nano
         row-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>,   // P1.04 (Row 0)
                     <&gpio0 22 GPIO_ACTIVE_LOW>,  // P0.22 (Row 1)
@@ -24,14 +25,6 @@
                     <&gpio1 0 GPIO_ACTIVE_LOW>,   // P1.00 (Row 3)
                     <&gpio0 24 GPIO_ACTIVE_LOW>,  // P0.24 (Row 4)
                     <&gpio0 11 GPIO_ACTIVE_LOW>;  // P0.11 (Row 5)
-        debounce-delay-ms = <5>;
-        poll-delay-ms = <10>;
-        poll-interval-ms = <33>;
-};
-kscan0: kscan_0 {
-    compatible = "zmk,kscan-gpio-matrix";
-    diode-direction = "col2row";
-    col-gpios
         // 16 столбцов через сдвиговые регистры
         col-gpios = <&shifter 0 GPIO_ACTIVE_HIGH>,
                     <&shifter 1 GPIO_ACTIVE_HIGH>,
@@ -49,7 +42,10 @@ kscan0: kscan_0 {
                     <&shifter 13 GPIO_ACTIVE_HIGH>,
                     <&shifter 14 GPIO_ACTIVE_HIGH>,
                     <&shifter 15 GPIO_ACTIVE_HIGH>;
-
+        debounce-delay-ms = <5>;
+        poll-delay-ms = <10>;
+        poll-interval-ms = <33>;
+};
         // Преобразование матрицы
         matrix-transform = <&default_transform>;
         
@@ -73,6 +69,7 @@ kscan0: kscan_0 {
         >;
     };
 };
+
 
 
 
