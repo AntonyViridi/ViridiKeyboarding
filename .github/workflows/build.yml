@@ -1,39 +1,5 @@
-name: Build ZMK Firmware
-
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          path: 'zmk'
-
-      - name: Prepare ZMK Environment
-        run: |
-          mkdir -p .west
-          echo "[manifest]" > .west/config
-          echo "path = zmk" >> .west/config
-          echo "file = west.yml" >> .west/config
-
-      - name: Build Firmware
-        run: |
-          docker run --rm -v $PWD:/workspace \
-            -w /workspace zmkfirmware/zmk-build-arm:stable \
-            bash -c "
-            git config --global --add safe.directory '*' &&
-            west update &&
-            cd zmk &&
-            west build -b nice_nano_v2 --pristine -- \
-              -DSHIELD=ViridiKeyboard \
-              -DZMK_CONFIG=/workspace/config \
-              -DSHIELD_DIR=/workspace/boards/shields
-            "
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: firmware
-          path: zmk/build/zephyr/*.uf2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
