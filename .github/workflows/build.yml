@@ -10,16 +10,20 @@ jobs:
         with:
           submodules: recursive
           
-      - name: Setup ZMK
-        run: |
-          west init -l config
-          west update
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
           
-      - name: Build Firmware
+      - name: Install West
+        run: pip install west
+          
+      - name: Build Firmware (Docker)
         run: |
           docker run --rm -v $PWD:/workspace \
             -w /workspace zmkfirmware/zmk-build-arm:stable \
-            bash -c "west build -b nice_nano_v2 --pristine -- \
+            bash -c "west init -l config && west update && \
+            west build -b nice_nano_v2 --pristine -- \
               -DSHIELD=ViridiKeyboard \
               -DZMK_CONFIG=/workspace/config \
               -DSHIELD_DIR=/workspace/boards/shields"
