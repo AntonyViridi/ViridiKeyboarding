@@ -1,4 +1,4 @@
-&arduino_spi { // Необходимо ввести spi хост
+&spi1 { // Необходимо ввести spi хост
     status = "okay";
     cs-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>; // Пин МК от регистра STCP
     
@@ -71,3 +71,4 @@
         >;
     };
 };
+
