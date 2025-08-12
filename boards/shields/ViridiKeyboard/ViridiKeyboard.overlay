@@ -1,5 +1,5 @@
 // Включаем SPI2 для 74HC595
-pro_micro_spi {
+&spi1 {
     status = "okay";
 
     // SCK, MOSI — настраиваются в DTSI, CS — свой пин
@@ -79,6 +79,7 @@ pro_micro_spi {
         >;
     };
 };
+
 
 
 
