@@ -55,7 +55,7 @@
         poll-interval-ms = <33>;
 
         // Диоды: катоды к строкам, аноды к столбцам → COL2ROW
-        zmk,matrix-diode-polarities = /bits/ 8 <ZMK_MATRIX_DIODE_COL2ROW>;
+        zmk,matrix-diode-polarities = /bits/ 8 <1>;
 
         // Трансформация матрицы
         matrix-transform = <&default_transform>;
@@ -79,6 +79,7 @@
         >;
     };
 };
+
 
 
 
