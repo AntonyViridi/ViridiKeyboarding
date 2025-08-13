@@ -1,190 +1,26 @@
-{
-  "version": 1,
-  "keymaps": {
-    "default": {
-      "layers": [
-        [
-          "ESC", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12",
-          "GRAVE", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "MINUS", "EQUAL", "BACKSPACE",
-          "TAB", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "LBRACKET", "RBRACKET", "ENTER",
-          "CAPS", "A", "S", "D", "F", "G", "H", "J", "K", "L", "SEMICOLON", "QUOTE", "HASH",
-          "LSHIFT", "Z", "X", "C", "V", "B", "N", "M", "COMMA", "DOT", "SLASH", "RSHIFT",
-          "LCTRL", "LWIN", "LALT", "SPACE", "RALT", "FN", "MENU", "RCTRL"
-        ]
-      ]
-    }
-  },
-  "bindings": {
-    "ESC": "K(ESC)",
-    "F1": "K(F1)",
-    "F2": "K(F2)",
-    "F3": "K(F3)",
-    "F4": "K(F4)",
-    "F5": "K(F5)",
-    "F6": "K(F6)",
-    "F7": "K(F7)",
-    "F8": "K(F8)",
-    "F9": "K(F9)",
-    "F10": "K(F10)",
-    "F11": "K(F11)",
-    "F12": "K(F12)",
-    "GRAVE": "K(GRAVE)",
-    "1": "K(1)",
-    "2": "K(2)",
-    "3": "K(3)",
-    "4": "K(4)",
-    "5": "K(5)",
-    "6": "K(6)",
-    "7": "K(7)",
-    "8": "K(8)",
-    "9": "K(9)",
-    "0": "K(0)",
-    "MINUS": "K(MINUS)",
-    "EQUAL": "K(EQUAL)",
-    "BACKSPACE": "K(BSPACE)",
-    "TAB": "K(TAB)",
-    "Q": "K(Q)",
-    "W": "K(W)",
-    "E": "K(E)",
-    "R": "K(R)",
-    "T": "K(T)",
-    "Y": "K(Y)",
-    "U": "K(U)",
-    "I": "K(I)",
-    "O": "K(O)",
-    "P": "K(P)",
-    "LBRACKET": "K(LBRACKET)",
-    "RBRACKET": "K(RBRACKET)",
-    "ENTER": "K(ENTER)",
-    "CAPS": "K(CAPS_LOCK)",
-    "A": "K(A)",
-    "S": "K(S)",
-    "D": "K(D)",
-    "F": "K(F)",
-    "G": "K(G)",
-    "H": "K(H)",
-    "J": "K(J)",
-    "K": "K(K)",
-    "L": "K(L)",
-    "SEMICOLON": "K(SEMICOLON)",
-    "QUOTE": "K(QUOTE)",
-    "HASH": "K(INT1)",
-    "LSHIFT": "K(LSHIFT)",
-    "Z": "K(Z)",
-    "X": "K(X)",
-    "C": "K(C)",
-    "V": "K(V)",
-    "B": "K(B)",
-    "N": "K(N)",
-    "M": "K(M)",
-    "COMMA": "K(COMMA)",
-    "DOT": "K(DOT)",
-    "SLASH": "K(SLASH)",
-    "RSHIFT": "K(RSHIFT)",
-    "LCTRL": "K(LCTRL)",
-    "LWIN": "K(LGUI)",
-    "LALT": "K(LALT)",
-    "SPACE": "K(SPACE)",
-    "RALT": "K(RALT)",
-    "FN": "MO(1)",
-    "MENU": "K(APP)",
-    "RCTRL": "K(RCTRL)"
-  },
-  "layout": [
-    { "x": 0.0, "y": 0.0 },
-    { "x": 1.0, "y": 0.0 },
-    { "x": 2.0, "y": 0.0 },
-    { "x": 3.0, "y": 0.0 },
-    { "x": 4.0, "y": 0.0 },
-    { "x": 5.0, "y": 0.0 },
-    { "x": 5.5, "y": 0.0 },
-    { "x": 6.0, "y": 0.0 },
-    { "x": 7.0, "y": 0.0 },
-    { "x": 8.0, "y": 0.0 },
-    { "x": 8.5, "y": 0.0 },
-    { "x": 9.0, "y": 0.0 },
-    { "x": 10.0, "y": 0.0 },
-    { "x": 11.0, "y": 0.0 },
-    { "x": 12.0, "y": 0.0 },
-    { "x": 13.0, "y": 0.0 },
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
 
-    { "x": 0.0, "y": 1.0 },
-    { "x": 1.0, "y": 1.0 },
-    { "x": 2.0, "y": 1.0 },
-    { "x": 3.0, "y": 1.0 },
-    { "x": 4.0, "y": 1.0 },
-    { "x": 5.0, "y": 1.0 },
-    { "x": 6.0, "y": 1.0 },
-    { "x": 7.0, "y": 1.0 },
-    { "x": 8.0, "y": 1.0 },
-    { "x": 9.0, "y": 1.0 },
-    { "x": 10.0, "y": 1.0 },
-    { "x": 11.0, "y": 1.0 },
-    { "x": 12.0, "y": 1.0 },
-    { "x": 13.0, "y": 1.0 },
-    { "x": 14.0, "y": 1.0, "w": 2.0 },
-    { "x": 14.0, "y": 1.0 },
+/ {
+    keymap {
+        compatible = "zmk,keymap";
 
-    { "x": 0.0, "y": 2.0, "w": 1.5 },
-    { "x": 1.5, "y": 2.0 },
-    { "x": 2.5, "y": 2.0 },
-    { "x": 3.5, "y": 2.0 },
-    { "x": 4.5, "y": 2.0 },
-    { "x": 5.5, "y": 2.0 },
-    { "x": 6.5, "y": 2.0 },
-    { "x": 7.5, "y": 2.0 },
-    { "x": 8.5, "y": 2.0 },
-    { "x": 9.5, "y": 2.0 },
-    { "x": 10.5, "y": 2.0 },
-    { "x": 11.5, "y": 2.0 },
-    { "x": 12.5, "y": 2.0 },
-    { "x": 13.5, "y": 2.0 },
-    { "x": 13.75, "y": 2.0, "w": 1.25, "h": 2.0, "x2": -0.25, "w2": 1.5, "h2": 1.0 },
-    { "x": 15.0, "y": 2.0 },
+        default_layer {
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |
+// |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |
+// |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |
+// |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |
+// |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |
+// |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |  ESC  |
+            bindings = <
+    &kp ESC    &kp Q    &kp W    &kp E     &kp R     &kp T                                                 &kp Y     &kp U     &kp I     &kp O     &kp P    &kp BSLH
+    &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                                                 &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT
+    &kp LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B      &kp LC(A) &kp LC(C)    &kp LC(V) &kp LC(X) &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RCTRL
+                                 &kp LGUI  &kp DEL   &kp RET    &kp SPACE &kp ESC      &kp RET   &kp SPACE &kp TAB   &kp BSPC  &kp RALT
+            >;
 
-    { "x": 0.0, "y": 3.0, "w": 1.75 },
-    { "x": 1.75, "y": 3.0 },
-    { "x": 2.75, "y": 3.0 },
-    { "x": 3.75, "y": 3.0 },
-    { "x": 4.75, "y": 3.0 },
-    { "x": 5.75, "y": 3.0 },
-    { "x": 6.75, "y": 3.0 },
-    { "x": 7.75, "y": 3.0 },
-    { "x": 8.75, "y": 3.0 },
-    { "x": 9.75, "y": 3.0 },
-    { "x": 10.75, "y": 3.0 },
-    { "x": 11.75, "y": 3.0 },
-    { "x": 12.75, "y": 3.0 },
-    { "x": 13.75, "y": 3.0 },
-
-    { "x": 0.0, "y": 4.0, "w": 2.25 },
-    { "x": 2.25, "y": 4.0 },
-    { "x": 3.25, "y": 4.0 },
-    { "x": 4.25, "y": 4.0 },
-    { "x": 5.25, "y": 4.0 },
-    { "x": 6.25, "y": 4.0 },
-    { "x": 7.25, "y": 4.0 },
-    { "x": 8.25, "y": 4.0 },
-    { "x": 9.25, "y": 4.0 },
-    { "x": 10.25, "y": 4.0 },
-    { "x": 11.25, "y": 4.0 },
-    { "x": 12.25, "y": 4.0 },
-    { "x": 12.25, "y": 4.0, "w": 2.75 },
-    { "x": 15.0, "y": 4.0 },
-
-    { "x": 0.0, "y": 5.0, "w": 1.25 },
-    { "x": 1.25, "y": 5.0 },
-    { "x": 2.5, "y": 5.0, "w": 1.25 },
-    { "x": 3.75, "y": 5.0 },
-    { "x": 5.0, "y": 5.0, "w": 1.25 },
-    { "x": 6.25, "y": 5.0, "w": 6.25 },
-    { "x": 12.5, "y": 5.0, "w": 1.25 },
-    { "x": 13.75, "y": 5.0 },
-    { "x": 15.0, "y": 5.0, "w": 1.25 },
-    { "x": 16.25, "y": 5.0 },
-    { "x": 17.5, "y": 5.0, "w": 1.25 },
-    { "x": 18.75, "y": 5.0 },
-    { "x": 20.0, "y": 5.0, "w": 1.25 },
-    { "x": 21.25, "y": 5.0 }
-  ]
-}
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+    };
+};
