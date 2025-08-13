@@ -15,7 +15,7 @@
                 // Строка 2
                 &kp Z       &kp X       &kp C       &kp V       &kp B       &kp N       &kp M       &kp COMM    &kp DOT     &kp SLSH    &kp GRV     &kp ESC     &trans     &trans
                 // Строка 3
-                &kp LGUI    &kp LALT    &kp LCTL    &kp LSFT    &lt 1 SPC   &kp TAB     &kp BSPC    &kp DEL    &kp LEFT    &kp DOWN    &kp UP      &kp RGHT    &kp ENT     &kp CAPS
+                &kp LGUI    &kp LALT    &kp LCTL    &kp LSFT    &kp LT(1, SPC)   &kp TAB     &kp BSPC    &kp DEL    &kp LEFT    &kp DOWN    &kp UP      &kp RGHT    &kp ENT     &kp CAPS
                 // Строка 4
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
                 // Строка 5
@@ -41,4 +41,5 @@
             >;
         };
     };
+
 };
