@@ -1,43 +1,190 @@
-/ {
-    keymap {
-        compatible = "zmk,keymap";
+{
+  "version": 1,
+  "keymaps": {
+    "default": {
+      "layers": [
+        [
+          "ESC", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12",
+          "GRAVE", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "MINUS", "EQUAL", "BACKSPACE",
+          "TAB", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "LBRACKET", "RBRACKET", "ENTER",
+          "CAPS", "A", "S", "D", "F", "G", "H", "J", "K", "L", "SEMICOLON", "QUOTE", "HASH",
+          "LSHIFT", "Z", "X", "C", "V", "B", "N", "M", "COMMA", "DOT", "SLASH", "RSHIFT",
+          "LCTRL", "LWIN", "LALT", "SPACE", "RALT", "FN", "MENU", "RCTRL"
+        ]
+      ]
+    }
+  },
+  "bindings": {
+    "ESC": "K(ESC)",
+    "F1": "K(F1)",
+    "F2": "K(F2)",
+    "F3": "K(F3)",
+    "F4": "K(F4)",
+    "F5": "K(F5)",
+    "F6": "K(F6)",
+    "F7": "K(F7)",
+    "F8": "K(F8)",
+    "F9": "K(F9)",
+    "F10": "K(F10)",
+    "F11": "K(F11)",
+    "F12": "K(F12)",
+    "GRAVE": "K(GRAVE)",
+    "1": "K(1)",
+    "2": "K(2)",
+    "3": "K(3)",
+    "4": "K(4)",
+    "5": "K(5)",
+    "6": "K(6)",
+    "7": "K(7)",
+    "8": "K(8)",
+    "9": "K(9)",
+    "0": "K(0)",
+    "MINUS": "K(MINUS)",
+    "EQUAL": "K(EQUAL)",
+    "BACKSPACE": "K(BSPACE)",
+    "TAB": "K(TAB)",
+    "Q": "K(Q)",
+    "W": "K(W)",
+    "E": "K(E)",
+    "R": "K(R)",
+    "T": "K(T)",
+    "Y": "K(Y)",
+    "U": "K(U)",
+    "I": "K(I)",
+    "O": "K(O)",
+    "P": "K(P)",
+    "LBRACKET": "K(LBRACKET)",
+    "RBRACKET": "K(RBRACKET)",
+    "ENTER": "K(ENTER)",
+    "CAPS": "K(CAPS_LOCK)",
+    "A": "K(A)",
+    "S": "K(S)",
+    "D": "K(D)",
+    "F": "K(F)",
+    "G": "K(G)",
+    "H": "K(H)",
+    "J": "K(J)",
+    "K": "K(K)",
+    "L": "K(L)",
+    "SEMICOLON": "K(SEMICOLON)",
+    "QUOTE": "K(QUOTE)",
+    "HASH": "K(INT1)",
+    "LSHIFT": "K(LSHIFT)",
+    "Z": "K(Z)",
+    "X": "K(X)",
+    "C": "K(C)",
+    "V": "K(V)",
+    "B": "K(B)",
+    "N": "K(N)",
+    "M": "K(M)",
+    "COMMA": "K(COMMA)",
+    "DOT": "K(DOT)",
+    "SLASH": "K(SLASH)",
+    "RSHIFT": "K(RSHIFT)",
+    "LCTRL": "K(LCTRL)",
+    "LWIN": "K(LGUI)",
+    "LALT": "K(LALT)",
+    "SPACE": "K(SPACE)",
+    "RALT": "K(RALT)",
+    "FN": "MO(1)",
+    "MENU": "K(APP)",
+    "RCTRL": "K(RCTRL)"
+  },
+  "layout": [
+    { "x": 0.0, "y": 0.0 },
+    { "x": 1.0, "y": 0.0 },
+    { "x": 2.0, "y": 0.0 },
+    { "x": 3.0, "y": 0.0 },
+    { "x": 4.0, "y": 0.0 },
+    { "x": 5.0, "y": 0.0 },
+    { "x": 5.5, "y": 0.0 },
+    { "x": 6.0, "y": 0.0 },
+    { "x": 7.0, "y": 0.0 },
+    { "x": 8.0, "y": 0.0 },
+    { "x": 8.5, "y": 0.0 },
+    { "x": 9.0, "y": 0.0 },
+    { "x": 10.0, "y": 0.0 },
+    { "x": 11.0, "y": 0.0 },
+    { "x": 12.0, "y": 0.0 },
+    { "x": 13.0, "y": 0.0 },
 
-        default_layer {
-            bindings = <
-                // Ряд 0: Esc, F1-F12 (15 клавиш)
-                &kp 0x29 &trans &kp 0x3A &kp 0x3B &kp 0x3C &kp 0x3D &trans &kp 0x3E &kp 0x3F &kp 0x40 &kp 0x41 &trans &kp 0x42 &kp 0x43 &kp 0x44 &kp 0x45
-                // Ряд 1: Ё/`, 1-0, -, =, Backspace (15 клавиш)
-                &kp 0x35 &kp 0x1E &kp 0x1F &kp 0x20 &kp 0x21 &kp 0x22 &kp 0x23 &kp 0x24 &kp 0x25 &kp 0x26 &kp 0x27 &kp 0x2D &kp 0x2E &kp 0x2A
-                // Ряд 2: Tab, Q-P, [, ], Enter (15 клавиш)
-                &kp 0x2B &kp 0x14 &kp 0x1A &kp 0x08 &kp 0x15 &kp 0x17 &kp 0x1C &kp 0x18 &kp 0x0C &kp 0x12 &kp 0x13 &kp 0x2F &kp 0x30 &kp 0x28
-                // Ряд 3: Caps, A-L, ;, ', # (15 клавиш)
-                &kp 0x39 &kp 0x04 &kp 0x16 &kp 0x07 &kp 0x09 &kp 0x0A &kp 0x0B &kp 0x0D &kp 0x0E &kp 0x0F &kp 0x33 &kp 0x34 &kp 0x31
-                // Ряд 4: Shift, Z-/, Shift (15 клавиш)
-                &kp 0xE1 &kp 0x1D &kp 0x1B &kp 0x06 &kp 0x19 &kp 0x05 &kp 0x11 &kp 0x10 &kp 0x36 &kp 0x37 &kp 0x38 &kp 0xE5
-                // Ряд 5: Ctrl, Win, Alt, Space, AltGr, Fn, Menu, Ctrl (16 клавиш)
-                &kp 0xE0 &kp 0xE3 &kp 0xE2 &kp 0x2C &trans &trans &trans &trans &trans &trans &trans &kp 0x65 &kp 0x80 &kp 0x65 &kp 0xE0
-                // Ряд 6: Пустой ряд (16 клавиш)
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
+    { "x": 0.0, "y": 1.0 },
+    { "x": 1.0, "y": 1.0 },
+    { "x": 2.0, "y": 1.0 },
+    { "x": 3.0, "y": 1.0 },
+    { "x": 4.0, "y": 1.0 },
+    { "x": 5.0, "y": 1.0 },
+    { "x": 6.0, "y": 1.0 },
+    { "x": 7.0, "y": 1.0 },
+    { "x": 8.0, "y": 1.0 },
+    { "x": 9.0, "y": 1.0 },
+    { "x": 10.0, "y": 1.0 },
+    { "x": 11.0, "y": 1.0 },
+    { "x": 12.0, "y": 1.0 },
+    { "x": 13.0, "y": 1.0 },
+    { "x": 14.0, "y": 1.0, "w": 2.0 },
+    { "x": 14.0, "y": 1.0 },
 
-        layer_1 {
-            bindings = <
-                // Ряд 0: Esc, F1-F12 (15 клавиш)
-                &kp 0x29 &trans &kp 0x3A &kp 0x3B &kp 0x3C &kp 0x3D &trans &kp 0x3E &kp 0x3F &kp 0x40 &kp 0x41 &trans &kp 0x42 &kp 0x43 &kp 0x44 &kp 0x45
-                // Ряд 1: Ё/`, 1-0, -, =, Backspace (15 клавиш)
-                &kp 0x35 &kp 0x1E &kp 0x1F &kp 0x20 &kp 0x21 &kp 0x22 &kp 0x23 &kp 0x24 &kp 0x25 &kp 0x26 &kp 0x27 &kp 0x2D &kp 0x2E &kp 0x2A
-                // Ряд 2: Tab, Q-P, [, ], Enter (15 клавиш)
-                &kp 0x2B &kp 0x14 &kp 0x1A &kp 0x08 &kp 0x15 &kp 0x17 &kp 0x1C &kp 0x18 &kp 0x0C &kp 0x12 &kp 0x13 &kp 0x2F &kp 0x30 &kp 0x28
-                // Ряд 3: Caps, A-L, ;, ', # (15 клавиш)
-                &kp 0x39 &kp 0x04 &kp 0x16 &kp 0x07 &kp 0x09 &kp 0x0A &kp 0x0B &kp 0x0D &kp 0x0E &kp 0x0F &kp 0x33 &kp 0x34 &kp 0x31
-                // Ряд 4: Shift, Z-/, Shift (15 клавиш)
-                &kp 0xE1 &kp 0x1D &kp 0x1B &kp 0x06 &kp 0x19 &kp 0x05 &kp 0x11 &kp 0x10 &kp 0x36 &kp 0x37 &kp 0x38 &kp 0xE5
-                // Ряд 5: Ctrl, Win, Alt, Space, AltGr, Fn, Menu, Ctrl (16 клавиш)
-                &kp 0xE0 &kp 0xE3 &kp 0xE2 &kp 0x2C &trans &trans &trans &trans &trans &trans &trans &kp 0x65 &kp 0x80 &kp 0x65 &kp 0xE0
-                // Ряд 6: Пустой ряд (16 клавиш)
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-    };
-};
+    { "x": 0.0, "y": 2.0, "w": 1.5 },
+    { "x": 1.5, "y": 2.0 },
+    { "x": 2.5, "y": 2.0 },
+    { "x": 3.5, "y": 2.0 },
+    { "x": 4.5, "y": 2.0 },
+    { "x": 5.5, "y": 2.0 },
+    { "x": 6.5, "y": 2.0 },
+    { "x": 7.5, "y": 2.0 },
+    { "x": 8.5, "y": 2.0 },
+    { "x": 9.5, "y": 2.0 },
+    { "x": 10.5, "y": 2.0 },
+    { "x": 11.5, "y": 2.0 },
+    { "x": 12.5, "y": 2.0 },
+    { "x": 13.5, "y": 2.0 },
+    { "x": 13.75, "y": 2.0, "w": 1.25, "h": 2.0, "x2": -0.25, "w2": 1.5, "h2": 1.0 },
+    { "x": 15.0, "y": 2.0 },
+
+    { "x": 0.0, "y": 3.0, "w": 1.75 },
+    { "x": 1.75, "y": 3.0 },
+    { "x": 2.75, "y": 3.0 },
+    { "x": 3.75, "y": 3.0 },
+    { "x": 4.75, "y": 3.0 },
+    { "x": 5.75, "y": 3.0 },
+    { "x": 6.75, "y": 3.0 },
+    { "x": 7.75, "y": 3.0 },
+    { "x": 8.75, "y": 3.0 },
+    { "x": 9.75, "y": 3.0 },
+    { "x": 10.75, "y": 3.0 },
+    { "x": 11.75, "y": 3.0 },
+    { "x": 12.75, "y": 3.0 },
+    { "x": 13.75, "y": 3.0 },
+
+    { "x": 0.0, "y": 4.0, "w": 2.25 },
+    { "x": 2.25, "y": 4.0 },
+    { "x": 3.25, "y": 4.0 },
+    { "x": 4.25, "y": 4.0 },
+    { "x": 5.25, "y": 4.0 },
+    { "x": 6.25, "y": 4.0 },
+    { "x": 7.25, "y": 4.0 },
+    { "x": 8.25, "y": 4.0 },
+    { "x": 9.25, "y": 4.0 },
+    { "x": 10.25, "y": 4.0 },
+    { "x": 11.25, "y": 4.0 },
+    { "x": 12.25, "y": 4.0 },
+    { "x": 12.25, "y": 4.0, "w": 2.75 },
+    { "x": 15.0, "y": 4.0 },
+
+    { "x": 0.0, "y": 5.0, "w": 1.25 },
+    { "x": 1.25, "y": 5.0 },
+    { "x": 2.5, "y": 5.0, "w": 1.25 },
+    { "x": 3.75, "y": 5.0 },
+    { "x": 5.0, "y": 5.0, "w": 1.25 },
+    { "x": 6.25, "y": 5.0, "w": 6.25 },
+    { "x": 12.5, "y": 5.0, "w": 1.25 },
+    { "x": 13.75, "y": 5.0 },
+    { "x": 15.0, "y": 5.0, "w": 1.25 },
+    { "x": 16.25, "y": 5.0 },
+    { "x": 17.5, "y": 5.0, "w": 1.25 },
+    { "x": 18.75, "y": 5.0 },
+    { "x": 20.0, "y": 5.0, "w": 1.25 },
+    { "x": 21.25, "y": 5.0 }
+  ]
+}
