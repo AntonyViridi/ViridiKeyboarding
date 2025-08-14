@@ -1,4 +1,3 @@
-#include "physical_layouts.dtsi"
 // Включаем SPI2 для 74HC595
 &spi1 {
     status = "okay";
@@ -80,6 +79,7 @@
         >;
     };
 };
+
 
 
 
