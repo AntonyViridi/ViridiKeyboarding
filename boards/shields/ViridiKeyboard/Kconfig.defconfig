@@ -1,22 +1,20 @@
 if SHIELD_ViridiKeyboard
 
 config ZMK_KEYBOARD_NAME
+    string "Keyboard name"
     default "ViridiKeyboard"
 
-config SPI
-	default y
-
+# Временное решение: полное отключение проблемных опций
 config BT_CTLR_TX_PWR_PLUS_8
-    default y
-
-# Отключение физических раскладок
-config ZMK_PHYSICAL_LAYOUTS
+    bool
     default n
 
-# Исправление предупреждения
+config ZMK_PHYSICAL_LAYOUTS
+    bool
+    default n
+
 config NRF_STORE_REBOOT_TYPE_GPREGRET
+    bool
     default n
 
 endif # SHIELD_ViridiKeyboard
-
-
