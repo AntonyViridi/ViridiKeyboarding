@@ -6,4 +6,16 @@ config ZMK_KEYBOARD_NAME
 config SPI
 	default y
 
+config BT_CTLR_TX_PWR_PLUS_8
+    default y
+
+# Отключение физических раскладок
+config ZMK_PHYSICAL_LAYOUTS
+    default n
+
+# Исправление предупреждения
+config NRF_STORE_REBOOT_TYPE_GPREGRET
+    default n
+
 endif # SHIELD_ViridiKeyboard
+
