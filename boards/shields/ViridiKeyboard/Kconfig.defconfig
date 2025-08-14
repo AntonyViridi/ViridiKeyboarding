@@ -9,10 +9,11 @@ config BT_CTLR_TX_PWR
     int "Bluetooth TX power"
     default 8
 
-# Отключение физических раскладок
+# Полное отключение модуля физических раскладок
 config ZMK_PHYSICAL_LAYOUTS
     bool
     default n
+    select ZMK_PHYSICAL_LAYOUTS_DISABLED
 
 # Исправление deprecated символа
 config NRF_STORE_REBOOT_TYPE
@@ -20,3 +21,4 @@ config NRF_STORE_REBOOT_TYPE
     default 0
 
 endif # SHIELD_ViridiKeyboard
+
