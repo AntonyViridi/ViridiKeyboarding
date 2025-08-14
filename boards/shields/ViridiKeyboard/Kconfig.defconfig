@@ -19,3 +19,4 @@ config NRF_STORE_REBOOT_TYPE_GPREGRET
 
 endif # SHIELD_ViridiKeyboard
 
+
