@@ -4,17 +4,19 @@ config ZMK_KEYBOARD_NAME
     string "Keyboard name"
     default "ViridiKeyboard"
 
-# Временное решение: полное отключение проблемных опций
-config BT_CTLR_TX_PWR_PLUS_8
-    bool
-    default n
+# Правильный способ установки TX power
+config BT_CTLR_TX_PWR
+    int "Bluetooth TX power"
+    default 8
 
+# Отключение физических раскладок
 config ZMK_PHYSICAL_LAYOUTS
     bool
     default n
 
-config NRF_STORE_REBOOT_TYPE_GPREGRET
-    bool
-    default n
+# Исправление deprecated символа
+config NRF_STORE_REBOOT_TYPE
+    int "Reboot type storage"
+    default 0
 
 endif # SHIELD_ViridiKeyboard
