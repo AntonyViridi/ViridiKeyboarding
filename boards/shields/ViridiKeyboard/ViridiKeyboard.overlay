@@ -1,5 +1,3 @@
-#include "ViridiKeyboard.dtsi"
-/ {
 // Включаем SPI2 для 74HC595
 &spi1 {
     status = "okay";
@@ -81,7 +79,18 @@
         >;
     };
 };
+&{/} {
+    physical_layouts {
+        compatible = "zmk,physical-layouts";
+        layouts {
+            viridi_default {
+                display-name = "Viridi Keyboard";
+                keys = <>;
+            };
+        };
+    };
 };
+
 
 
 
