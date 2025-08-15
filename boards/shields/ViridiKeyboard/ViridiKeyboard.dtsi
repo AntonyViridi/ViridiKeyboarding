@@ -1,0 +1,11 @@
+/ {
+    physical_layouts {
+        compatible = "zmk,physical-layouts";
+        layouts {
+            viridi_default {
+                display-name = "Viridi Keyboard";
+                keys = <>;
+            };
+        };
+    };
+};
