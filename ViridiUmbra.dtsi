@@ -1,0 +1,32 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-shift-register";
+        debounce-period = <5>;
+        diode-direction = "COL2ROW";
+
+        row-count = <6>;
+        col-count = <14>;
+
+        // 6 строк, напрямую подключённых к пинам nice!nano v2
+        row-gpios = <&gpio1 04 GPIO_ACTIVE_LOW>,  // P1.04
+                    <&gpio0 11 GPIO_ACTIVE_LOW>,  // P0.11
+                    <&gpio1 00 GPIO_ACTIVE_LOW>,  // P1.00
+                    <&gpio0 24 GPIO_ACTIVE_LOW>,  // P0.24
+                    <&gpio0 22 GPIO_ACTIVE_LOW>,  // P0.22
+                    <&gpio0 20 GPIO_ACTIVE_LOW>;  // P0.20
+
+        // Каскад из двух 74HC595 для 14 столбцов
+        sr-data-gpios  = <&gpio0 2 GPIO_ACTIVE_HIGH>;   // DS (pin 14)
+        sr-clock-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;   // SHCP (pin 11)
+        sr-latch-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;   // STCP (pin 12)
+        sr-count = <2>;                                // два 74HC595 в цепочке
+
+        // Опциональные сигналы (если не используются — не подключать)
+        // sr-enable-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>; // OE (pin 13, active low)
+        // sr-clear-gpios  = <&gpio0 9 GPIO_ACTIVE_LOW>;  // MR (pin 10, active low)
+    };
+};
