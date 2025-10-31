@@ -8,23 +8,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # 🧱 Основной шаг сборки ZMK
-      - name: Build ZMK firmware
-        uses: zmkfirmware/zmk-build-action@v1
-        with:
-          board: nice_nano_v2
-          shield: ViridiKeyboard
-          config-path: config
-
-      # 📦 Публикуем собранный .uf2 файл как артефакт
-      - name: Upload firmware
-        uses: actions/upload-artifact@v4
-        with:
-          name: ViridiKeyboard-nice_nano_v2-zmk
-          path: build/zephyr/zmk.uf2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      board: "nice_nano_v2"
+      shield: "ViridiKeyboard"
+      config-path: "config"
