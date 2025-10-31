@@ -1,5 +1,15 @@
-- name: Build firmware
-  run: |
-    west init -l config
-    west update
-    west build -s zmk/app -b nice_nano_v2 -- -DSHIELD="ViridiKeyboard"
+name: Build ZMK firmware
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      shield: "ViridiKeyboard"
+      board: "nice_nano_v2"
+      artifact-name: "ViridiKeyboard-nice_nano_v2-zmk"
