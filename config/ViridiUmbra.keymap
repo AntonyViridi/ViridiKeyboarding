@@ -1,14 +1,57 @@
-/ {
-keymap {
-compatible = "zmk,keymap";
-default_layer {
-bindings = <
-&kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL &kp BSPC
-&kp TAB &kp CYR_YO &kp CYR_TS &kp CYR_U &kp CYR_K &kp CYR_E &kp CYR_N &kp CYR_G &kp CYR_SH &kp CYR_SC &kp CYR_Z &kp CYR_H &kp CYR_HARD &kp ENTER
-&kp CAPS &kp CYR_F &kp CYR_Y &kp CYR_V &kp CYR_A &kp CYR_P &kp CYR_R &kp CYR_O &kp CYR_L &kp CYR_D &kp CYR_ZH &kp CYR_EE &kp SQT
-&kp LSHIFT &kp CYR_YA &kp CYR_CH &kp CYR_S &kp CYR_M &kp CYR_I &kp CYR_T &kp CYR_SOFT &kp CYR_B &kp CYR_YU &kp DOT &kp UP &kp RSHIFT
-&kp LCTRL &kp LGUI &kp LALT &kp SPACE &kp RALT &kp LEFT &kp DOWN &kp RIGHT
->;
+// # Подключение библиотек
+// # Используется стандартное поведение клавиш из репо ZMK
+#include <behaviors.dtsi>
+// # Для использования имен клавиш вместо сухого кода
+#include <dt-bindings/zmk/keys.h>
+// # Чтобы управлять внешними устройствами или функциями через питание на будущее для подсветки/экрана или модули через ножку питания МК
+#include <dt-bindings/zmk/ext_power.h>
+// # Для управления Bluetooth с помощью клавиш или макросов нпр. по кнопке перенключать провод/BT/радио
+#include <dt-bindings/zmk/bt.h>
+// # Чтобы использование имен подсветки вместо сухого кода.
+#include <dt-bindings/zmk/rgb.h>
+
+// # Переопределяем ключи из стандартного dtsi для удобства. 
+// # Имя "none" для пустых клавиш.
+#define none &none
+// # Имя "__" для нижнего слоя.
+#define __ &trans
+// # Название слоев (BASE - основной, NAV - медиаклавиши, TOOL - подсветка, SYSRQ - системные клавиши (нпр. PrintScreen).
+#define BASE  0
+#define NAV   1
+#define TOOL  2
+#define SYSRQ 3
+// # Использование "_" сокращает запись, чтобы не писать &kp каждый раз.
+#define _(KEY) &kp KEY
+// # Пока клавиша удерживается-активен слой. нпр MO(2) = TOOL  
+#define MO(LAYER) &mo LAYER
+// # Устанавливает метку-ссылку для dts из репо ZMK
+ keymap0: keymap {
+// # Обозначение что это keymap ZMK
+    compatible = "zmk,keymap";
+// # Слой №1 - "Default"
+// ╭─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────────╮
+// |     |     |     |     |     |     |     |     |     |     |     |     |     |         |
+// |─────┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───────|
+// |       |     |     |     |     |     |     |     |     |     |     |     |     |       |
+// |───────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴───────|
+// |        |     |     |     |     |     |     |     |     |     |     |     |            |
+// |────────┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴────────────|
+// |          |     |     |     |     |     |     |     |     |     |     |                |
+// |──────┬───┴──┬──┴──┬──┴─────┴─────┴─────┴─────┴─────┴───┬─┴─────┼─────┴┬──────┬────────|
+// |      |      |     |                                    |       |      |      |        |
+// ╰──────┴──────┴─────┴────────────────────────────────────┴───────┴──────┴──────┴────────╯
+// # Начало базового слоя
+    default_layer {
+      bindings = <
+        _(ESC) _(N1)  _(N2)  _(N3)  _(N4)  _(N5)  _(N6)  _(N7)  _(N8)  _(N9)  _(N0)  _(MINUS) _(EQUAL) _(BSPC)
+        _(TAB)  _(Q)   _(W)   _(E)   _(R)   _(T)   _(Y)   _(U)   _(I)   _(O)   _(P)  _(LBKT)  _(RBKT)  _(BSLH)
+        MO(NAV) _(A)   _(S)   _(D)   _(F)   _(G)   _(H)   _(J)   _(K)   _(L)  _(SEMI) _(SQT)       _(RET)
+        _(LSHFT)  _(Z)   _(X)   &mcopy   &mpaste   _(B)   _(N)   _(M)  _(COMMA) _(DOT)  _(FSLH)       __(RSHFT,UP)
+        _(LCTRL) _(LGUI) _(LALT)               _(SPACE)           _(RALT)  __(K_MENU,LEFT)  &lmt TOOL DOWN   __(RCTRL,RIGHT)
+      >;
+    };
 };
-};
-};
+// # Управление подсветкой. led_strip ссылка из репо ZMK. chain-length длина подсветки. На будущее разобраться
+// # &led_strip {
+// #    chain-length = <10>;
+// # };
