@@ -1,0 +1,32 @@
+---
+name: "master release"
+
+on:
+  push:
+    paths:
+      - 'config/**'
+    branches:
+      - "master"
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+
+  release:
+    name: "Release"
+    runs-on: "ubuntu-latest"
+    needs: build
+    steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: firmware
+          path: build/artifacts
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          title: "Development Build"
+          automatic_release_tag: "latest"
+          files: |
+            build/artifacts/*.uf2
