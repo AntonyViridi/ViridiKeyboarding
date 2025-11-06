@@ -41,16 +41,23 @@
 // |      |      |     |                                    |       |      |      |        |
 // ╰──────┴──────┴─────┴────────────────────────────────────┴───────┴──────┴──────┴────────╯
 // # Начало базового слоя
+
 keymap0: keymap {
     compatible = "zmk,keymap";
 
     default_layer {
         bindings = <
-            _(ESC) _(N1) _(N2) _(N3) _(N4) _(N5) _(N6) _(N7) _(N8) _(N9) _(N0) _(MINUS) _(EQUAL) _(BSPC)
-            _(TAB) _(Q) _(W) _(E) _(R) _(T) _(Y) _(U) _(I) _(O) _(P) _(LBKT) _(RBKT) _(BSLH)
-            MO(NAV) _(A) _(S) _(D) _(F) _(G) _(H) _(J) _(K) _(L) _(SEMI) _(SQT) _(RET)
-            _(LSHFT) _(Z) _(X) _(C) _(V) _(B) _(N) _(M) _(COMMA) _(DOT) _(FSLH) &trans
-            _(LCTRL) _(LGUI) _(LALT)           _(SPACE)           _(RALT) &trans LT(TOOL, DOWN) &trans
+            // Row 0
+            _(ESC)  _(N1) _(N2) _(N3) _(N4) _(N5) _(N6) _(N7) _(N8) _(N9) _(N0) _(MINUS) _(EQUAL) _(BSPC)
+            // Row 1
+            _(TAB)  _(Q)  _(W)  _(E)  _(R)  _(T)  _(Y)  _(U)  _(I)  _(O)  _(P)  _(LBKT)  _(RBKT)  _(BSLH)
+            // Row 2
+            MO(NAV) _(A)  _(S)  _(D)  _(F)  _(G)  _(H)  _(J)  _(K)  _(L)  _(SEMI) _(SQT) _(RET)
+            // Row 3
+            _(LSHFT) _(Z)  _(X)  _(C)  _(V)  _(B)  _(N)  _(M)  _(COMMA) _(DOT) _(FSLH) &trans
+            // Row 4
+            _(LCTRL) _(LGUI) _(LALT)           _(SPACE)           _(RALT) LT(TOOL, DOWN) &trans
+            // Row 5
             none none none none none none none none none none none none none none
         >;
     };
