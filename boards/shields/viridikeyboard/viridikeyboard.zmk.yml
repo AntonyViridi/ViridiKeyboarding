@@ -1,0 +1,6 @@
+# boards/shields/viridikeyboard/viridikeyboard.zmk.yml
+file_format: "1"
+id: "viridikeyboard"
+name: "ViridiKeyboard"
+type: "shield"
+url: "https://github.com/AntonyViridi/ViridiKeyboarding"  # опционально, но полезно
