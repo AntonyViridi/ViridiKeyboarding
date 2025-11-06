@@ -13,44 +13,23 @@
         col-count = <14>;
 
         // Строки напрямую к МК
-        row-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>,  // P1.04
-                    <&gpio0 11 GPIO_ACTIVE_LOW>,  // P0.11
-                    <&gpio1 0 GPIO_ACTIVE_LOW>,  // P1.00
-                    <&gpio0 24 GPIO_ACTIVE_LOW>,  // P0.24
-                    <&gpio0 22 GPIO_ACTIVE_LOW>,  // P0.22
-                    <&gpio0 20 GPIO_ACTIVE_LOW>;  // P0.20
+        row-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>,
+                    <&gpio0 11 GPIO_ACTIVE_LOW>,
+                    <&gpio1 0 GPIO_ACTIVE_LOW>,
+                    <&gpio0 24 GPIO_ACTIVE_LOW>,
+                    <&gpio0 22 GPIO_ACTIVE_LOW>,
+                    <&gpio0 20 GPIO_ACTIVE_LOW>;
 
         // 74HC595 каскад для 14 столбцов
-        sr-data-gpios  = <&gpio0 2 GPIO_ACTIVE_HIGH>; // DS первого 74HC595
-        sr-clock-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>; // SHCP
-        sr-latch-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>; // STCP
-        sr-count = <2>;                                // два 74HC595
-
+        sr-data-gpios  = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+        sr-clock-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+        sr-latch-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+        sr-count = <2>;
     };
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <14>;
         rows = <6>;
-    // | MX1  | MX2  | MX3  | MX4  | MX5  | MX6  | MX7  | MX8  | MX9  | MX10 | MX11 | MX12 | MX13 |    MX14     |
-    // |   MX15   | MX16 | MX17 | MX18 | MX19 | MX20 | MX21 | MX22 | MX23 | MX24 | MX25 | MX26 | MX27 |  MX28   |
-    // |    MX29    | MX30 | MX31 | MX32 | MX33 | MX34 | MX35 | MX36 | MX37 | MX38 | MX39 | MX40 |     MX41     |
-    // |     MX42      | MX43 | MX44 | MX45 | MX46 | MX47 | MX48 | MX49 | MX50 | MX51 | MX52 |       MX53       |
-    // |  MX54  |  MX55  |  MX56  |                  MX57                   |  MX58  |  MX59  |  MX60  |  MX61  |
-        map = <
-            // row 0
-            _(ESC)  _(N1)  _(N2)  _(N3)  _(N4)  _(N5)  _(N6)  _(N7)  _(N8)  _(N9)  _(N0)  _(MINUS) _(EQUAL) _(BSPC)
-            // row 1
-            _(TAB)  _(Q)   _(W)   _(E)   _(R)   _(T)   _(Y)   _(U)   _(I)   _(O)   _(P)  _(LBKT)  _(RBKT)  _(BSLH)
-            // row 2
-            MO(NAV) _(A)   _(S)   _(D)   _(F)   _(G)   _(H)   _(J)   _(K)   _(L)   _(SEMI) _(SQT)    _(RET)
-            // row 3
-            _(LSHFT) _(Z)   _(X)   &mcopy &mpaste _(B)   _(N)   _(M)   _(COMMA) _(DOT) _(FSLH)  &trans
-            // row 4
-            _(LCTRL) _(LGUI) _(LALT)           _(SPACE)           _(RALT) &trans LT(TOOL,DOWN) &trans
-            // row 5
-            // если есть нижний ряд, можно добавить кнопки: none или свои клавиши
-            none none none none none none none none none none none none none none
-        >;
     };
 };
