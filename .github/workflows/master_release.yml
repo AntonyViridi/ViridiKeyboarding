@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout репозитория
+      # 1️⃣ Checkout
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      # 3️⃣ Install Python dependencies
+      # 3️⃣ Install Python packages
       - name: Install Python dependencies
         run: pip install --upgrade pip west pyserial pyelftools
 
@@ -43,11 +43,11 @@ jobs:
       - name: Update ZMK and modules
         run: west update
 
-      # 7️⃣ Install Zephyr SDK
+      # 7️⃣ Install Zephyr SDK v0.16.3
       - name: Install Zephyr SDK
         run: |
           wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-x86_64.tar.xz
-          tar -xf zephyr-sdk-0.16.3-linux-x86_64.tar.xz
+          tar -xf zephyr-sdk-0.16.3_linux-x86_64.tar.xz
           ./zephyr-sdk-0.16.3/setup.sh -- -y
           echo "ZEPHYR_SDK_INSTALL_DIR=$PWD/zephyr-sdk-0.16.3" >> $GITHUB_ENV
 
