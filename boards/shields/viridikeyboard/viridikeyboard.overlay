@@ -13,17 +13,17 @@
         col-count = <14>;
 
         // Строки напрямую к МК
-        row-gpios = <&gpio1 04 GPIO_ACTIVE_LOW>,  // P1.04
+        row-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>,  // P1.04
                     <&gpio0 11 GPIO_ACTIVE_LOW>,  // P0.11
-                    <&gpio1 00 GPIO_ACTIVE_LOW>,  // P1.00
+                    <&gpio1 0 GPIO_ACTIVE_LOW>,  // P1.00
                     <&gpio0 24 GPIO_ACTIVE_LOW>,  // P0.24
                     <&gpio0 22 GPIO_ACTIVE_LOW>,  // P0.22
                     <&gpio0 20 GPIO_ACTIVE_LOW>;  // P0.20
 
         // 74HC595 каскад для 14 столбцов
-        sr-data-gpios  = <&gpio0 02 GPIO_ACTIVE_HIGH>; // DS первого 74HC595
-        sr-clock-gpios = <&gpio0 06 GPIO_ACTIVE_HIGH>; // SHCP
-        sr-latch-gpios = <&gpio0 08 GPIO_ACTIVE_HIGH>; // STCP
+        sr-data-gpios  = <&gpio0 2 GPIO_ACTIVE_HIGH>; // DS первого 74HC595
+        sr-clock-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>; // SHCP
+        sr-latch-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>; // STCP
         sr-count = <2>;                                // два 74HC595
 
     };
