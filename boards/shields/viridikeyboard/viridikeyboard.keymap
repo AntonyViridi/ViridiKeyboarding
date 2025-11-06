@@ -47,17 +47,17 @@ keymap0: keymap {
 
     default_layer {
         bindings = <
-            // Row 0
-            _(ESC)  _(N1) _(N2) _(N3) _(N4) _(N5) _(N6) _(N7) _(N8) _(N9) _(N0) _(MINUS) _(EQUAL) _(BSPC)
-            // Row 1
-            _(TAB)  _(Q)  _(W)  _(E)  _(R)  _(T)  _(Y)  _(U)  _(I)  _(O)  _(P)  _(LBKT)  _(RBKT)  _(BSLH)
-            // Row 2
-            MO(NAV) _(A)  _(S)  _(D)  _(F)  _(G)  _(H)  _(J)  _(K)  _(L)  _(SEMI) _(SQT) _(RET)
-            // Row 3
-            _(LSHFT) _(Z)  _(X)  _(C)  _(V)  _(B)  _(N)  _(M)  _(COMMA) _(DOT) _(FSLH) &trans
-            // Row 4
-            _(LCTRL) _(LGUI) _(LALT)           _(SPACE)           _(RALT) LT(TOOL, DOWN) &trans
-            // Row 5
+            // row 0
+            &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL &kp BSPC
+            // row 1
+            &kp TAB &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &kp LBKT &kp RBKT &kp BSLH
+            // row 2
+            &mo NAV &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SEMI &kp SQT &kp RET
+            // row 3
+            &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &trans
+            // row 4
+            &kp LCTRL &kp LGUI &kp LALT &kp SPACE &kp RALT &mo TOOL &trans
+            // row 5 (пустой ряд)
             none none none none none none none none none none none none none none
         >;
     };
