@@ -10,48 +10,18 @@
 // # Чтобы использование имен подсветки вместо сухого кода.
 #include <dt-bindings/zmk/rgb.h>
 
-// # Переопределяем ключи из стандартного dtsi для удобства. 
-// # Имя "none" для пустых клавиш.
 #define none &none
-// # Имя "__" для нижнего слоя.
-#define __ &trans
-// # Название слоев (BASE - основной, NAV - медиаклавиши, TOOL - подсветка, SYSRQ - системные клавиши (нпр. PrintScreen).
-#define BASE  0
-#define NAV   1
-#define TOOL  2
-#define SYSRQ 3
-// # Использование "_" сокращает запись, чтобы не писать &kp каждый раз.
-#define _(KEY) &kp KEY
-// # Пока клавиша удерживается-активен слой. нпр MO(2) = TOOL  
-#define MO(LAYER) &mo LAYER
-// # Устанавливает метку-ссылку для dts из репо ZMK
- keymap0: keymap {
-// # Обозначение что это keymap ZMK
-    compatible = "zmk,keymap";
-// # Слой №1 - "Default"
-// ╭─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────────╮
-// |     |     |     |     |     |     |     |     |     |     |     |     |     |         |
-// |─────┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───────|
-// |       |     |     |     |     |     |     |     |     |     |     |     |     |       |
-// |───────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴───────|
-// |        |     |     |     |     |     |     |     |     |     |     |     |            |
-// |────────┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴────────────|
-// |          |     |     |     |     |     |     |     |     |     |     |                |
-// |──────┬───┴──┬──┴──┬──┴─────┴─────┴─────┴─────┴─────┴───┬─┴─────┼─────┴┬──────┬────────|
-// |      |      |     |                                    |       |      |      |        |
-// ╰──────┴──────┴─────┴────────────────────────────────────┴───────┴──────┴──────┴────────╯
-// # Начало базового слоя
 
 keymap0: keymap {
     compatible = "zmk,keymap";
 
-   default_layer {
+    default_layer {
         bindings = <
-            none none none none none none none none none none none none none none
-            none none none none none none none none none none none none none none
-            none none none none none none none none none none none none none none
-            none none none none none none none none none none none none none none
-            none none none none none none none none none none none none none none
+            &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL &kp BSPC
+            &kp TAB &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &kp LBKT &kp RBKT &kp BSLH
+            &mo 1 &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SEMI &kp SQT &kp RET
+            &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &trans
+            &kp LCTRL &kp LGUI &kp LALT &kp SPACE &kp RALT &mo 2 &trans
             none none none none none none none none none none none none none none
         >;
     };
