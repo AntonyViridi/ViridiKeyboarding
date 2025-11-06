@@ -1,14 +1,11 @@
-name: "Master Release"
+name: Build ViridiKeyboard
 
 on:
   push:
-    branches:
-      - "master"
+    branches: [ master ]
     paths:
       - 'config/**'
-  pull_request:
-    branches:
-      - "master"
+      - 'boards/**'
 
 jobs:
   build:
@@ -17,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: false  # ← важно: не подгружаем субмодули сами
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -27,17 +24,20 @@ jobs:
       - name: Install west
         run: pip install west
 
-      - name: Initialize ZMK
+      # Все west-команды выполняются из КОРНЯ репозитория!
+      - name: Initialize ZMK (user config)
         run: west init -l config
 
-      - name: Update ZMK and dependencies
+      - name: Update ZMK, Zephyr, and modules
         run: west update
 
+      # Теперь копируем наш шилд в правильное место
       - name: Copy custom shield into ZMK
         run: |
           mkdir -p zmk/app/boards/shields/viridikeyboard
           cp -r boards/shields/viridikeyboard/* zmk/app/boards/shields/viridikeyboard/
 
+      # Сборка: west build запускается из КОРНЯ!
       - name: Build firmware
         run: |
           west build -s zmk/app -d build -b nrf52840_m2 -- \
@@ -48,22 +48,3 @@ jobs:
         with:
           name: firmware
           path: build/zephyr/*.uf2
-
-  release:
-    name: "Release"
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: firmware
-          path: build/artifacts
-
-      - uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: true
-          title: "Development Build"
-          automatic_release_tag: "latest"
-          files: |
-            build/artifacts/*.uf2
