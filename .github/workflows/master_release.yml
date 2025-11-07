@@ -13,7 +13,7 @@ jobs:
 
     steps:
       # 1️⃣ Checkout
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: false
@@ -33,17 +33,16 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake ninja-build gperf ccache dfu-util \
-                                  device-tree-compiler wget xz-utils file unzip
+                                  device-tree-compiler wget xz-utils file
 
-      # 5️⃣ Clone ZMK
-      - name: Clone ZMK repository
+      # 5️⃣ Initialize ZMK workspace
+      - name: Initialize ZMK workspace
         run: |
-          git clone --branch main https://github.com/zmkfirmware/zmk.git zmk
+          west init -m https://github.com/zmkfirmware/zmk.git -l zmk
           cd zmk
-          west init -l app
           west update
 
-      # 6️⃣ Install Zephyr SDK
+      # 6️⃣ Install Zephyr SDK v0.16.3
       - name: Install Zephyr SDK
         run: |
           wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-x86_64.tar.xz
@@ -53,22 +52,19 @@ jobs:
 
       # 7️⃣ Export Zephyr environment
       - name: Zephyr environment
-        run: |
-          cd zmk
-          source zephyr/zephyr-env.sh
+        run: source zmk/zephyr/zephyr-env.sh
 
-      # 8️⃣ Copy custom shield
+      # 8️⃣ Copy custom shield into ZMK
       - name: Copy custom shield
         run: |
-          cd zmk/app
-          mkdir -p boards/shields/viridikeyboard
-          cp -r ../../../boards/shields/viridikeyboard/* boards/shields/viridikeyboard/
+          mkdir -p zmk/app/boards/shields/viridikeyboard
+          cp -r boards/shields/viridikeyboard/* zmk/app/boards/shields/viridikeyboard/
 
       # 9️⃣ Build firmware
       - name: Build firmware
         run: |
           cd zmk/app
-          west build -b nrf52840_m2 -d build -DSHIELD=viridikeyboard
+          west build -b nrf52840_m2 -DSHIELD=viridikeyboard
 
       # 🔟 Upload firmware artifact
       - name: Upload firmware
