@@ -1,10 +1,5 @@
-/ {
-    kscan: kscan {
-        compatible = "zmk,kscan-gpio-74hc595";
-
-        row-count = <6>;
-        col-count = <14>;
-
+#include "viridikeyboard.dtsi"
+&kscan0 {
         /* Ряды (прямые GPIO) */
         row-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>,
                     <&gpio0 11 GPIO_ACTIVE_LOW>,
@@ -19,4 +14,3 @@
         sr-latch-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
         sr-count = <2>;
     };
-};
