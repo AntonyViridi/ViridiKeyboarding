@@ -12,8 +12,18 @@
 
 #define none &none
 
+&bt BT_CLR 0;
+
 keymap0: keymap {
     compatible = "zmk,keymap";
+
+    layer_1 {
+        behaviors = <&mo>;
+    };
+
+    layer_2 {
+        behaviors = <&mo>;
+    };
 
     default_layer {
         bindings = <
