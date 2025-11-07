@@ -1,15 +1,26 @@
 / {
     kscan: kscan {
-        compatible = "zmk,kscan-gpio";
+        compatible = "zmk,kscan-gpio-matrix-shift-register";
 
-        // Пример для 2x2 клавиатурной матрицы, заменить пины на свои
-        pin-row-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>,
-                        <&gpio0 3 GPIO_ACTIVE_LOW>;
-        pin-column-gpios = <&gpio0 4 GPIO_ACTIVE_LOW>,
-                           <&gpio0 5 GPIO_ACTIVE_LOW>;
+        row-count = <6>;
+        col-count = <14>;
 
-        // Настройка прерывания
-        #interrupt-cells = <0>;
-        interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
+        row-gpios = <&gpio1 4  GPIO_ACTIVE_LOW>,
+                    <&gpio0 11 GPIO_ACTIVE_LOW>,
+                    <&gpio1 0  GPIO_ACTIVE_LOW>,
+                    <&gpio0 24 GPIO_ACTIVE_LOW>,
+                    <&gpio0 22 GPIO_ACTIVE_LOW>,
+                    <&gpio0 20 GPIO_ACTIVE_LOW>;
+
+        // Shift register signals (74HC595 или аналог)
+        sr-data-gpios  = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+        sr-clock-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+        sr-latch-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+
+        // Количество сдвиговых регистров
+        sr-count = <2>;
+
+        // Обработка прерываний (выбор пина можно изменить при необходимости)
+        interrupt-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
     };
 };
