@@ -1,6 +1,4 @@
 if SHIELD_VIRIDIKEYBOARD
-
 config ZMK_KSCAN_GPIO_74HC595
     default y
-
 endif
