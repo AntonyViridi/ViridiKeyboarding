@@ -2,13 +2,13 @@
     kscan: kscan {
         compatible = "zmk,kscan-gpio";
 
-        # Пример для 2x2 клавиатурной матрицы, замени пины на свои
+        // Пример для 2x2 клавиатурной матрицы, заменить пины на свои
         pin-row-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>,
                         <&gpio0 3 GPIO_ACTIVE_LOW>;
         pin-column-gpios = <&gpio0 4 GPIO_ACTIVE_LOW>,
                            <&gpio0 5 GPIO_ACTIVE_LOW>;
 
-        # Настройка прерывания
+        // Настройка прерывания
         #interrupt-cells = <0>;
         interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
     };
