@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
-      - name: Checkout
+      # 1️⃣ Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: false
 
       # 2️⃣ Setup Python
       - name: Setup Python
@@ -33,17 +33,17 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake ninja-build gperf ccache dfu-util \
-                                  device-tree-compiler wget xz-utils file
+                                  device-tree-compiler wget xz-utils file unzip
 
-      # 5️⃣ Clone ZMK repository
-      - name: Clone ZMK
+      # 5️⃣ Clone ZMK
+      - name: Clone ZMK repository
         run: |
           git clone --branch main https://github.com/zmkfirmware/zmk.git zmk
           cd zmk
           west init -l app
           west update
 
-      # 6️⃣ Install Zephyr SDK v0.16.3
+      # 6️⃣ Install Zephyr SDK
       - name: Install Zephyr SDK
         run: |
           wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-x86_64.tar.xz
@@ -53,22 +53,26 @@ jobs:
 
       # 7️⃣ Export Zephyr environment
       - name: Zephyr environment
-        run: west zephyr-export
+        run: |
+          cd zmk
+          source zephyr/zephyr-env.sh
 
       # 8️⃣ Copy custom shield
       - name: Copy custom shield
         run: |
-          mkdir -p zmk/app/boards/shields/viridikeyboard
-          cp -r boards/shields/viridikeyboard/* zmk/app/boards/shields/viridikeyboard/
+          cd zmk/app
+          mkdir -p boards/shields/viridikeyboard
+          cp -r ../../../boards/shields/viridikeyboard/* boards/shields/viridikeyboard/
 
       # 9️⃣ Build firmware
       - name: Build firmware
         run: |
-          west build -s zmk/app -d build -b nrf52840_m2 -- -DSHIELD=viridikeyboard
+          cd zmk/app
+          west build -b nrf52840_m2 -d build -DSHIELD=viridikeyboard
 
       # 🔟 Upload firmware artifact
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
           name: firmware
-          path: build/zephyr/*.uf2
+          path: zmk/app/build/zephyr/*.uf2
