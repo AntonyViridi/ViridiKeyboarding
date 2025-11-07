@@ -6,58 +6,65 @@ on:
     paths:
       - 'config/**'
       - 'boards/**'
-      - 'zmk/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      # 1️⃣ Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          submodules: true
 
+      # 2️⃣ Setup Python
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
+      # 3️⃣ Install Python dependencies
       - name: Install Python dependencies
-        run: pip install --upgrade pip west
+        run: pip install --upgrade pip west pyserial pyelftools
 
+      # 4️⃣ Install system dependencies
       - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake ninja-build gperf ccache dfu-util \
                                   device-tree-compiler wget xz-utils file
 
-      - name: Init west workspace (root = repo)
-        run: west init .
+      # 5️⃣ Initialize ZMK CORRECTLY
+      - name: Initialize West workspace (correct)
+        run: |
+          west init -l .
+          west update
 
-      - name: Update modules
-        run: west update
-
-      - name: Install Zephyr SDK
+      # 6️⃣ Install Zephyr SDK
+      - name: Install Zephyr SDK 0.16.3
         run: |
           wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.3/zephyr-sdk-0.16.3_linux-x86_64.tar.xz
           tar -xf zephyr-sdk-0.16.3_linux-x86_64.tar.xz
           ./zephyr-sdk-0.16.3/setup.sh -t all -c
           echo "ZEPHYR_SDK_INSTALL_DIR=$PWD/zephyr-sdk-0.16.3" >> $GITHUB_ENV
 
+      # 7️⃣ Export Zephyr environment
       - name: Export Zephyr environment
         run: west zephyr-export
 
-      - name: Copy custom shield
+      # 8️⃣ Copy custom shield
+      - name: Copy custom shield into ZMK
         run: |
           mkdir -p zmk/app/boards/shields/viridikeyboard
           cp -r boards/shields/viridikeyboard/* zmk/app/boards/shields/viridikeyboard/
 
+      # 9️⃣ Build firmware
       - name: Build firmware
         run: |
-          west build -s zmk/app -d build -b nrf52840_m2 -- -DSHIELD=viridikeyboard
+          west build -s zmk/app -d build -b nrf52840_m2 -- \
+            -DZMK_CONFIG=config -DSHIELD=viridikeyboard
 
-      - name: Upload firmware
+      # 🔟 Upload artifact
+      - name: Upload firmware artifact
         uses: actions/upload-artifact@v4
         with:
           name: firmware
