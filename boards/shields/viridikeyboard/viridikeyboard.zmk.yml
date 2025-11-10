@@ -1,0 +1,11 @@
+file_format: "1"
+id: viridikeyboard
+name: viridikeyboard
+type: shield
+url: https://github.com/AntonyViridi/viridikeyboard
+requires: 
+  - nice_nano_v2
+exposes: 
+  - GPIO
+features:
+  - keys
