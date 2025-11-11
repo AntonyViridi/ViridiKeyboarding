@@ -4,7 +4,7 @@ name: viridikeyboard
 type: shield
 url: https://github.com/AntonyViridi/viridikeyboard
 requires: 
-  - nice_nano_v2
+  - pro_micro
 exposes: 
   - GPIO
 features:
