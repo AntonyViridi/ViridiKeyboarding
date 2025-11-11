@@ -13,5 +13,5 @@
 #
 ---
 include:
-  - board: pro_micro
+  - board: nrf52840_m2
     shield: viridikeyboard
