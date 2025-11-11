@@ -4,7 +4,7 @@ name: viridikeyboard
 type: shield
 url: https://github.com/AntonyViridi/viridikeyboard
 requires: 
-  - pro_micro
+  - nrf52840_m2
 exposes: 
   - GPIO
 features:
