@@ -15,12 +15,12 @@
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-                &kp ESC &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp
-                &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp
-                &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp
-                &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp
-                &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp
-                &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp &kp
+                &kp ESC &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE
+                &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE
+                &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE
+                &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE
+                &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE
+                &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE &kp SPACE
             >;
         };
     };
