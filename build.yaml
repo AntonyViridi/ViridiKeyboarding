@@ -13,5 +13,5 @@
 #
 ---
 include:
-  - board: adafruit_feather_nrf52840_express
+  - board: nrf52_adafruit_feather
     shield: viridikeyboard
