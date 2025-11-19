@@ -19,9 +19,9 @@ shifter: shifter_595 {
     status = "okay";
     label = "595";
 
-    data-gpios = <&pro_micro 22 GPIO_ACTIVE_HIGH>;  // SER
-    srclk-gpios = <&pro_micro 20 GPIO_ACTIVE_HIGH>; // SRCLK
-    rclk-gpios = <&pro_micro 17 GPIO_ACTIVE_HIGH>;  // RCLK
+    data-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;  // SER
+    srclk-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>; // SRCLK
+    rclk-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;  // RCLK
 
     gpio-controller;
     #gpio-cells = <2>;
@@ -39,13 +39,13 @@ default_kscan: kscan {
     diode-direction = "col2row";
 
     row-gpios =
-        <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&gpio0 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
     col-gpios =
         <&shifter 0 GPIO_ACTIVE_HIGH>,
