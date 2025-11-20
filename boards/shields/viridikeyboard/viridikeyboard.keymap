@@ -16,7 +16,7 @@
 #define FIXRALT 2
 
 / {
-    keymap {
+    keymap: keymap {
         compatible = "zmk,keymap";
 
         default_layer {
