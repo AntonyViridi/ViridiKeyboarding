@@ -6,13 +6,39 @@
         zmk,matrix_transform = &default_transform;
     };
 
+    /* Настройка SPI и 595 сдвиговых регистров */
+    &spi0 {
+        status = "okay";
+        cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>; /* Можно убрать, если не используете CS */
+
+        shifter0: 595@0 {
+            compatible = "zmk,gpio-595";
+            gpio-controller;
+            reg = <0>;
+            ngpios = <8>;
+            label = "595_0";
+        };
+
+        shifter1: 595@1 {
+            compatible = "zmk,gpio-595";
+            gpio-controller;
+            reg = <1>;
+            ngpios = <8>;
+            label = "595_1";
+        };
+        /* Добавьте дополнительные 595 при необходимости */
+    };
+
+    /* Клавиатурная матрица через GPIO + 595 */
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-595-matrix";
         label = "KSCAN";
         diode-direction = "col2row";
+
         data-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
         srclk-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
         rclk-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
+
         row-gpios =
             <&gpio0  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio1  6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
@@ -20,10 +46,12 @@
             <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+
         cols = <14>;
         debounce-period = <10>;
     };
 
+    /* Трансформация матрицы */
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <14>;
@@ -38,6 +66,7 @@
         >;
     };
 
+    /* Физическая раскладка клавиатуры */
     viridikeyboard: physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "viridikeyboard";
