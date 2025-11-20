@@ -37,6 +37,6 @@
     };
     viridikeyboard {
         compatible = "zmk,physical-layout";
-        label = "viridikeyboard";
+        display-name = "viridikeyboard";
     };
 };
