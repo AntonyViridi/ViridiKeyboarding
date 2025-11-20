@@ -39,5 +39,6 @@
         compatible = "zmk,physical-layout";
         display-name = "viridikeyboard";
 		transform = <&default_transform>;
-    };
+		keymap = <&keymap>;
+		    };
 };
