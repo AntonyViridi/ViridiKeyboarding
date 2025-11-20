@@ -20,7 +20,7 @@
 
     &spi0 {
         status = "okay";
-        cs-gpios = <&nice_nano_v2 17 GPIO_ACTIVE_LOW>; // RCLK (Latch)
+        cs-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>; // RCLK (Latch)
         pinctrl-0 = <&spi0_default>;
         pinctrl-names = "default";
 
