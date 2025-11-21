@@ -1,8 +1,0 @@
-# Delete all unused properties.
-
-# Give your module a name
-# name: viridikeyboard
-build:
-  settings:
-    # Folder containing a "boards" folder (. = root)
-    board_root: .
