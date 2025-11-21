@@ -1,6 +1,6 @@
 if SHIELD_VIRIDIKEYBOARD
-config ZMK_KSCAN_GPIO_74HC595
-    default y
+# enable GPIO
+CONFIG_GPIO=y
 config ZMK_USB
 	default y
 # enable pinctrl
