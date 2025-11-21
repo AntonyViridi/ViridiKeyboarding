@@ -1,6 +1,2 @@
-config SHIELD_VIRIDIKEYBOARD
-    bool "ViridiKeyboard Shield"
-    def_bool y
-config ZMK_KSCAN_GPIO_74HC595
-    bool "Use GPIO Shift Register for KScan"
-    default y
+config SHIELD_viridikeyboard
+    def_bool $(shields_list_contains,viridikeyboard)
