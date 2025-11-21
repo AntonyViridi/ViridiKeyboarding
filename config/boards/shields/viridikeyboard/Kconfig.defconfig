@@ -1,12 +1,15 @@
 if SHIELD_VIRIDIKEYBOARD
-# enable GPIO
-CONFIG_GPIO=y
-config ZMK_USB
-	default y
-# enable pinctrl
-CONFIG_PINCTRL=y
-config SPI
-    default y
+
 config ZMK_KEYBOARD_NAME
     default "ViridiKeyboard"
+
+config SPI
+    default y
+    
+# enable pinctrl
+CONFIG_PINCTRL=y
+
+# enable GPIO
+CONFIG_GPIO=y
+
 endif
